@@ -17,6 +17,7 @@ class _QuoteListState extends State<QuoteList> {
     'It has become appallingly obvious that our technology has exceeded our humanity.',
     'It is only when they go wrong that machines remind you how powerful they are.'
   ];
+  // List <String> authors=[''],
 
   @override
   Widget build(BuildContext context) {
