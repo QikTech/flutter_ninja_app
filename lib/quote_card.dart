@@ -28,8 +28,14 @@ class QuoteCard extends StatelessWidget {
               quote.author,
               style: TextStyle(fontSize: 14, color: Colors.grey[800]),
             ),
+            SizedBox(
+              height: 6,
+            ),
             ElevatedButton(onPressed: (){},
-              child: Text('submitt'),)
+              child: Text('submitt'),
+              // icon: Icons(Icons.delete),
+
+            ),
           ],
         ),
       ),
