@@ -1,4 +1,4 @@
-package QikTech.dev.ninja_id
+package qiktech.dev.world_time
 
 import io.flutter.embedding.android.FlutterActivity
 

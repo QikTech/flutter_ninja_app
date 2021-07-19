@@ -1,6 +1,6 @@
 {
-    "name": "ninja_id",
-    "short_name": "ninja_id",
+    "name": "world_time",
+    "short_name": "world_time",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
