@@ -1,4 +1,4 @@
-package qiktech.dev.world_time
+package com.example.worldtime
 
 import io.flutter.embedding.android.FlutterActivity
 
