@@ -12,24 +12,33 @@ class WorldTime {
   WorldTime({this.location, this.flag, this.url});
 
    Future<void> getTime() async {
-    print('Api Fetch Begins');
-    //Make Api request
-    Response response = await get(Uri.parse('https://worldtimeapi.org/api/timezone/$url'));
-    Map jsonData= jsonDecode(response.body);
-    // print('from Api Full Response = $jsonData');
 
-    // get properties from jsonData
-    String datetime = jsonData['utc_datetime'];
-    String offset = jsonData['utc_offset'].substring(1,3);
-    // print('From offset $offset, $datetime');
+     try {
+       print('Api Fetch Begins');
+       //Make Api request
+       Response response = await get(Uri.parse('https://worldtimeapi.org/api/timezone/$url'));
+       Map jsonData = jsonDecode(response.body);
+       // print('from Api Full Response = $jsonData');
 
-    //Create Date time object
-    DateTime now = DateTime.parse(datetime);
-    now = now.add(Duration(hours: int.parse(offset)));
-    // print ('from now $now');
+       // get properties from jsonData
+       String datetime = jsonData['utc_datetime'];
+       String offset = jsonData['utc_offset'].substring(1,3);
+       // print('From offset $offset, $datetime');
 
-    // set time property
-    time = now.toString();
+       //Create Date time object
+       DateTime now = DateTime.parse(datetime);
+       now = now.add(Duration(hours: int.parse(offset)));
+       // print ('from now $now');
+
+       // set time property
+       time = now.toString();
+     }
+
+     catch(e){
+       print('caught error: $e');
+       time='could not get time data';
+     }
+
 
   }
 
