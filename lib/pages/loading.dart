@@ -1,6 +1,7 @@
 // import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:worldtime/services/world_time.dart';
 import 'package:http/http.dart';
 import 'dart:convert';
 
@@ -11,28 +12,17 @@ class Loading extends StatefulWidget {
 }
 
 class _LoadingState extends State<Loading> {
-  //#26 HTTP
-  //Async code represents action that starts now and finishes sometimes in the future
-  void getTime() async {
-    print('Api Fetch Begins');
-    //Make Api request
-    Response response = await get(Uri.parse('https://worldtimeapi.org/api/timezone/Asia/Kolkata'));
-    Map jsonData= jsonDecode(response.body);
-    print('from jsonData $jsonData');
 
-    // get properties from jsonData
-    String datetime = jsonData['utc_datetime'];
-    String offset = jsonData['utc_offset'].substring(1,3);
-    print('From offset $offset, $datetime');
+  String time = 'loading';
 
-    //Create Date time object
-    DateTime now = DateTime.parse(datetime);
-    now = now.add(Duration(hours: int.parse(offset)));
-
-    print ('from now $now');
-
+  void setupWorldTime() async {
+    WorldTime instance = WorldTime(location: 'Berlin', flag: 'germany.png', url: 'Europe/Berlin');
+    await instance.getTime();
+    print(instance.time);
+    setState(() {
+      time = instance.time;
+    });
   }
-  //#26 HTTP
 
 
 
@@ -40,14 +30,17 @@ class _LoadingState extends State<Loading> {
   @override
   void initState() {
     super.initState();
-    getTime();
+    setupWorldTime();
   }
 
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text('Loading Screen')),
+      body: Padding(
+        padding: EdgeInsets.all(50.0),
+        child: Text(time),
+      )
     );
   }
 }
