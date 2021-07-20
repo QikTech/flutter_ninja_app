@@ -13,7 +13,7 @@ class _LoadingState extends State<Loading> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text('Loading Screen'),
+      body: Center(child: Text('Loading Screen')),
     );
   }
 }

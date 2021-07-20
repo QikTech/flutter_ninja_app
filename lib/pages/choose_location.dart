@@ -23,11 +23,6 @@ class _ChooseLocationState extends State<ChooseLocation> {
     });
 
     print('$username - $bio');
-
-
-
-
-
   }
   //ASYNCHRONOUS CODE
 
