@@ -14,7 +14,9 @@ class _HomeState extends State<Home> {
           children: [
             ElevatedButton(
               onPressed: () {
+                //ROUTING
                 Navigator.pushNamed(context, '/location');
+                //ROUTING
               },
               child: Text('TextButton'),
             ),

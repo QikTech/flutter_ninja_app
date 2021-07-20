@@ -6,10 +6,13 @@ import 'package:worldtime/pages/home.dart';
 import 'package:worldtime/pages/loading.dart';
 
 void main() => runApp(MaterialApp(
+  //ROUTING
   initialRoute: '/home',
       routes: {
         '/': (context) => Loading(),
         '/home': (context) => Home(),
         '/location': (context) => ChooseLocation(),
       },
-    ));
+  //ROUTING
+
+));
