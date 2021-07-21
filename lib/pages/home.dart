@@ -44,15 +44,15 @@ class _HomeState extends State<Home> {
             SizedBox(
               height: 20,
             ),
-            Center(
-              child: Text(
+
+            Text(
                 // data['time'],
                 "Time: $data['flag']",
                 style: TextStyle(
                   fontSize: 26,
                 ),
-              ),
             ),
+
           ]),
         ),
       ),
