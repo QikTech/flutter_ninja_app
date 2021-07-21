@@ -6,34 +6,54 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  
-  Map data={};
-  
+  Map data = {};
+
   @override
   Widget build(BuildContext context) {
-    
     data = ModalRoute.of(context).settings.arguments;
     print(data);
-    
-    
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Home'),
       ),
       body: SafeArea(
-        child: Column(
-          children: [
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(0, 120, 0, 0),
+          child: Column(children: [
+            ElevatedButton(
+              onPressed: () {
+                //ROUTING
+                Navigator.pushNamed(context, '/location');
+                //ROUTING
+              },
+              child: Text('Choose Location'),
+            ),
+
+            SizedBox(height: 20),
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+              Text(
+                data['location'],
+                style: TextStyle(
+                  fontSize: 28,
+                  letterSpacing: 2,
+                ),
+              ),
+            ]),
+
+            SizedBox(
+              height: 20,
+            ),
             Center(
-              child: ElevatedButton(
-                onPressed: () {
-                  //ROUTING
-                  Navigator.pushNamed(context, '/location');
-                  //ROUTING
-                },
-                child: Text('Choose Location'),
+              child: Text(
+                // data['time'],
+                "Time: $data['flag']",
+                style: TextStyle(
+                  fontSize: 26,
+                ),
               ),
             ),
-          ],
+          ]),
         ),
       ),
     );
