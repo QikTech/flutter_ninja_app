@@ -10,7 +10,7 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    data = ModalRoute.of(context).settings.arguments;
+    data = data.isNotEmpty ? data : ModalRoute.of(context).settings.arguments;
     print(data);
 
     // set background image
@@ -35,9 +35,17 @@ class _HomeState extends State<Home> {
             padding: const EdgeInsets.fromLTRB(0, 120, 0, 0),
             child: Column(children: [
               TextButton(
-                onPressed: () {
+                onPressed: () async {
                   //ROUTING
-                  Navigator.pushNamed(context, '/location');
+                  dynamic result = await Navigator.pushNamed(context, '/location');
+                  setState(() {
+                    data = {
+                      'time': result['time'],
+                      'location': result['location'],
+                      'isDaytime': result['isDaytime'],
+                      'flag': result['flag'],
+                    };
+                  });
                   //ROUTING
                 },
                 child: Text('Choose Location'),
