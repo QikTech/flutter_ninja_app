@@ -1,7 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.worldtime">
-   <application
-        android:label="worldtime"
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <application
+        android:label="4 Worldtime"
         android:icon="@mipmap/ic_launcher">
 
         <activity
